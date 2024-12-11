@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Sentiment Analysis</h1>
+    <form method="POST">
+        <label for="text">Enter Text (e.g., Review, Tweet, etc.):</label>
+        <textarea id="text" name="text" rows="4" cols="50" required>{{ text }}</textarea><br><br>
+        <input type="submit" value="Analyze Sentiment">
+    </form>
+
+    {% if sentiment_vader_result %}
+    <h3>Results from VADER:</h3>
+    <p>Sentiment: {{ sentiment_vader_result }} (Score: {{ sentiment_vader }})</p>
+    {% endif %}
+
+    {% if sentiment_textblob_result %}
+    <h3>Results from TextBlob:</h3>
+    <p>Sentiment: {{ sentiment_textblob_result }} (Score: {{ sentiment_textblob }})</p>
+    {% endif %}
+</body>
+</html>
